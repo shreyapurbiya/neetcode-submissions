@@ -1,0 +1,17 @@
+class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        i=0
+        j=len(heights)-1
+        volume=0
+        while i<j:
+            width= j-i
+            height = min(heights[i], heights[j])
+            if volume<height*width:
+                volume = height*width
+            if heights[i]>heights[j]:
+                j=j-1
+            elif heights[i]<heights[j]:
+                i=i+1
+            else:
+                i=i+1
+        return volume
